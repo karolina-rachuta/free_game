@@ -9,7 +9,7 @@ function GameCard({
   genre,
 }) {
   return (
-    <Link style={{textDecoration:"none", color: 'black'}} 
+    <Link style={{textDecoration:"none", color: 'black'}}
     to={`/games/${id}`}>
       <div
         style={{
@@ -25,7 +25,7 @@ function GameCard({
         <img
           style={{ width: "100%", borderRadius: "4px" }}
           src={thumbnail}
-          alt="Game picture"
+          alt="Game Cover"
         />
         <h2>{title}</h2>
         <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
