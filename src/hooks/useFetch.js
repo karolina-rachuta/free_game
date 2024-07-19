@@ -4,32 +4,53 @@ import {
 } from "react";
 import axios from "axios";
 
-let getCache = {};
+const localCache = {};
 
-function useFetch() {
+function useFetch({
+    platform,
+    sortBy,
+    genre,
+    tags
+}) {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        getData();
-    }, [])
+        if (!localCache[`${platform}${sortBy}${genre}${tags}`]) {
+            getData();
+        } else {
+            setGames(localCache[`${platform}${sortBy}${genre}${tags}`])
+        }
+    }, [platform,
+        sortBy,
+        genre,
+        tags
+    ])
 
     async function getData() {
         await axios.get('/games', {
-            baseURL: `https://${process.env.REACT_APP_API_HOST}/api`,
-            headers: {
-                'x-rapidapi-key': process.env.REACT_APP_API_KEY,
-                'x-rapidapi-host': process.env.REACT_APP_API_HOST
-            }
-        }).then(response => {
-            if (response.data.status !== 0) {
-                setGames(response.data)
-                // getCache[games] = response.data;
-            } else {
+                baseURL: `https://${process.env.REACT_APP_API_HOST}/api`,
+                headers: {
+                    'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+                    'x-rapidapi-host': process.env.REACT_APP_API_HOST
+                },
+                params: {
+                    platform,
+                    category: genre,
+                    'sort-by': sortBy,
+                    tags
+                }
+            })
+            .then(response => {
+                if (response.data.status !== 0) {
+                    localCache[`${platform}${sortBy}${genre}${tags}`] = response.data;
+                    setGames(localCache[`${platform}${sortBy}${genre}${tags}`]);
+                } else {
+                    setGames([]);
+                }
+            })
+            .catch(error => {
                 setGames([]);
-            }
-        }).catch(error => {
-            setGames([]);
-        })
+            })
 
     }
     return {

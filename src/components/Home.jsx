@@ -4,7 +4,7 @@ function Home() {
 
     return (
         <>
-        <div>Home</div>
+        <h1>Games:</h1>
         <GameList />
         </>
     )
