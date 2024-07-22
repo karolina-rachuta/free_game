@@ -14,7 +14,7 @@ function GameList() {
   return (
     <>
       <Filters setFilter={setFilter}/>
-      <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
+      <div className={'list_container'}>
         {games.map(
           ({ id, title, thumbnail, short_description, platform, genre }) => (
             <GameCard

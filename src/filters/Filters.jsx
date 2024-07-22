@@ -25,12 +25,10 @@ function Filters({ setFilter }) {
 
   const handleTag = (e) => {
     setTags(e.target.value);
-    setFilter((prevState) => (
-      {
+    setFilter((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-      }
-    ));
+    }));
   };
 
   const handleSortBy = (e) => {
@@ -42,45 +40,59 @@ function Filters({ setFilter }) {
   };
 
   return (
-    <>
-      <label htmlFor="platform">Platform</label>
-      <select
-        name="platform"
-        id="platform"
-        value={platform}
-        onChange={handlePlatfrom}
-      >
-        {PLATFORMS.map(({ value, display }) => (
-          <option key={value} value={value}>{display}</option>
-        ))}
-      </select>
+    <div className="filter_box">
+      <div>
+        <label htmlFor="platform">Platform</label>
+        <select
+          name="platform"
+          id="platform"
+          value={platform}
+          onChange={handlePlatfrom}
+        >
+          {PLATFORMS.map(({ value, display }) => (
+            <option key={value} value={value}>
+              {display}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="genre">Genres</label>
-      <select name="genre" id="genre" value={genre} onChange={handleGenre}>
-        {GENRES.map(({ value, display }) => (
-          <option key={value} value={value}>{display}</option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="genre">Genres</label>
+        <select name="genre" id="genre" value={genre} onChange={handleGenre}>
+          {GENRES.map(({ value, display }) => (
+            <option key={value} value={value}>
+              {display}
+            </option>
+          ))}
+        </select>
 
-      <label htmlFor="tags">Tags</label>
-      <select name="tags" id="tags" value={tags} onChange={handleTag}>
-        {TAGS.map(({ value, display }) => (
-          <option key={value} value={value}>{display}</option>
-        ))}
-      </select>
+        <label htmlFor="tags">Tags</label>
+        <select name="tags" id="tags" value={tags} onChange={handleTag}>
+          {TAGS.map(({ value, display }) => (
+            <option key={value} value={value}>
+              {display}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="sortBy">Sort by</label>
-      <select
-        name="sortBy"
-        id="sortBy"
-        value={sortBy}
-        onChange={handleSortBy}
-      >
-        {SORT_BY.map(({ value, display }) => (
-          <option key={value} value={value}>{display}</option>
-        ))}
-      </select>
-    </>
+      <div>
+        <label htmlFor="sortBy">Sort by</label>
+        <select
+          name="sortBy"
+          id="sortBy"
+          value={sortBy}
+          onChange={handleSortBy}
+        >
+          {SORT_BY.map(({ value, display }) => (
+            <option key={value} value={value}>
+              {display}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 }
 

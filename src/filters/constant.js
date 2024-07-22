@@ -64,7 +64,7 @@ export const TAGS = [{
     },
     {
         value: 'action-rpg',
-        display: 'ACTION-RPG'
+        display: 'Action-RPG'
     },
     {
         value: 'sandbox',
