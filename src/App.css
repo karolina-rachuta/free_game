@@ -113,3 +113,9 @@
     max-width: 280px;
     padding: 10px;
 }
+
+.game-detail_loading {
+  font-size: 14px;
+  color: blueviolet;
+  font-weight: bold;
+}

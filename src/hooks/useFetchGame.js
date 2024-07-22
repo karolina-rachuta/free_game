@@ -6,6 +6,7 @@ import axios from "axios";
 
 function useFetchGame(id) {
     const [game, setGame] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getData()
@@ -33,10 +34,14 @@ function useFetchGame(id) {
             .catch(error => {
                 setGame({});
             })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     return {
-        game
+        game,
+        loading
     }
 }
 

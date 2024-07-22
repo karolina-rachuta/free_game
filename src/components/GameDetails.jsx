@@ -16,6 +16,7 @@ function GameDetails() {
       release_date,
       screenshots,
     },
+    loading,
   } = useFetchGame(id);
 
   return (
@@ -23,6 +24,9 @@ function GameDetails() {
       <Link to="/" className="back_button">
         Back
       </Link>
+
+      {loading ? <p className="game-detail_loading">just a sec! ...loading</p> : null}
+
       <div className="game-detail_box">
         <img src={thumbnail} alt="Game Cover" />
         <a href={game_url} className="link" target="_blank" rel="noreferrer">
