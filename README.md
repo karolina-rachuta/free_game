@@ -1,19 +1,22 @@
 # Free Games
+
 Website where different PC and browser games can be found, with an option to filter the games.
 
-
 ## Tech stack:
-- React js
-- Rest API
-- CSS
+
+-   React js
+-   Rest API
+-   CSS
 
 ## How to run:
-- `git clone git@github.com:karolina-rachuta/free_game.git`
-- `npm install`
-- `npm start`
-- profit!
+
+-   `git clone git@github.com:karolina-rachuta/free_game.git`
+-   `npm install`
+-   `npm start`
+-   profit!
 
 ## Screenshots:
-![screenshot](./public/home.png)
 
-![screenshot](./public/game-details.png)
+![screenshot](./src/assets/home.png)
+
+![screenshot](./src/assets/game-details.png)
