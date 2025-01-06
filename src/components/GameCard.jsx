@@ -10,8 +10,13 @@ function GameCard({
 }) {
     return (
         <Link className="link" to={`/games/${id}`}>
-            <div className="card-box" width="300" heigth="400">
-                <img src={thumbnail} alt="Game Cover" />
+            <div className="card-box" width="300" height="400">
+                <img
+                    src={thumbnail}
+                    alt="Game Cover"
+                    width="278"
+                    height="160"
+                />
                 <h2>{title}</h2>
                 <p className="card-box_text">Genre: {genre}</p>
                 <p>{short_description}</p>

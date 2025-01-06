@@ -2,6 +2,10 @@
 
 Website where different PC and browser games can be found, with an option to filter the games.
 
+## Demo:
+
+https://free-games-7ca11.web.app
+
 ## Tech stack:
 
 -   React js
