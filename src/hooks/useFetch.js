@@ -13,6 +13,7 @@ function useFetch({
     tags
 }) {
     const [games, setGames] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (!localCache[`${platform}${sortBy}${genre}${tags}`]) {
@@ -27,6 +28,7 @@ function useFetch({
     ])
 
     async function getData() {
+        setLoading(true);
         await axios.get('/games', {
                 baseURL: `https://${process.env.REACT_APP_API_HOST}/api`,
                 headers: {
@@ -51,10 +53,14 @@ function useFetch({
             .catch(error => {
                 setGames([]);
             })
+            .finally(() => {
+                setLoading(false);
+            })
 
     }
     return {
-        games
+        games,
+        loading
     };
 }
 
